@@ -1,0 +1,13 @@
+[project]
+name = "nat-sjetstream"
+version = "0.1.0"
+description = "Simple nats app built with docker and uv"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "nats-py>=2.10.0",
+    "requests",
+]
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

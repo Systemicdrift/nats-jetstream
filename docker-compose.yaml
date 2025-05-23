@@ -1,0 +1,19 @@
+
+services:
+  nats:
+    image: nats:latest
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    command: ["-js"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8222/"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  app:
+    build: .
+    depends_on:
+      nats:
+        condition: service_healthy
