@@ -1,7 +1,9 @@
 # Simple nats-jestream app
 
-## build
+Simple app to demonstrate use of docker and nat-jetstream
+
+## Build
 `docker compose build`
 
-## run
+## Run
 `docker compose up`
