@@ -1,5 +1,4 @@
 
-
 ** deps
 $ brew install uv
 $ curl -LsSf https://astral.sh/uv/install.sh | sudo sh
@@ -11,3 +10,4 @@ nats-py==2.6.0
 
 ** run
 $ uv run main.py
+
