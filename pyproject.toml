@@ -7,6 +7,11 @@ requires-python = ">=3.9"
 dependencies = [
     "nats-py>=2.10.0",
     "requests",
+    "fastapi",
+    "uvicorn",
+    "pytest",
+    "httpx",
+    "pytest-asyncio"
 ]
 [build-system]
 requires = ["setuptools"]

@@ -12,8 +12,11 @@ services:
       timeout: 3s
       retries: 5
 
+
   app:
     build: .
+    ports:
+      - "8000:8000"  # Add this
     depends_on:
       nats:
         condition: service_healthy
