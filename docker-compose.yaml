@@ -28,4 +28,4 @@ services:
       dockerfile: Dockerfile.test
     depends_on:
       - app
-    working_dir: /app/test
+    working_dir: /app/test_integration
