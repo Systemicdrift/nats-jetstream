@@ -28,6 +28,10 @@ test:
 	@echo "Running tests with pytest..."
 	$(PYTEST)
 
+test-int:
+	docker compose up --build --abort-on-container-exit --exit-code-from test_integration
+
+
 clean:
 	@echo "Removing virtual environment and __pycache__..."
 	rm -rf $(VENV) **/__pycache__
