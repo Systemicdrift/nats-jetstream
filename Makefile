@@ -26,7 +26,7 @@ install: venv
 
 test:
 	@echo "Running tests with pytest..."
-	$(PYTEST)
+	$(PYTEST) -m "not integration"
 
 test-int:
 	docker compose up --build --abort-on-container-exit --exit-code-from test_integration
