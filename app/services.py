@@ -3,6 +3,7 @@ from fastapi import FastAPI, BackgroundTasks
 from nats.aio.client import Client as NATS
 from nats.js.api import StreamConfig
 from contextlib import asynccontextmanager
+from fastapi.responses import JSONResponse
 
 nc = NATS()
 js = None
@@ -44,3 +45,9 @@ async def consume_messages(count: int = 1, background_tasks: BackgroundTasks = N
 
     background_tasks.add_task(_consume)
     return {"status": f"Consuming {count} messages from 'events.*'"}
+
+@app.get("/healthz")
+async def health_check():
+    if nc.is_connected:
+        return {"status": "ok"}
+    return JSONResponse(status_code=503, content={"status": "nats disconnected"})

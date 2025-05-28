@@ -11,13 +11,14 @@ FROM python:3.13-slim
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Copy working files
-COPY . .
 WORKDIR /app
+COPY . .
 
 # Install the application dependencies.
-WORKDIR /app
 RUN uv sync --frozen --no-cache
+ENV PATH="/app/.venv/bin:$PATH"
+EXPOSE 8000
 
 # Run the app
 # CMD ["uv", "run", "main.py"]
-CMD ["uv", "run", "services:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "app.services:app", "--host", "0.0.0.0", "--port", "8000"]

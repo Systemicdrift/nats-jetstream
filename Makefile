@@ -35,3 +35,13 @@ test-int:
 clean:
 	@echo "Removing virtual environment and __pycache__..."
 	rm -rf $(VENV) **/__pycache__
+
+run:
+	docker compose up --build app
+
+relock:
+	uv lock
+
+clean-build:
+	docker compose build --no-cache
+	docker compose up app
