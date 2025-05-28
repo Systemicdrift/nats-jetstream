@@ -4,6 +4,13 @@ import httpx
 import asyncio
 
 @pytest.mark.asyncio
+async def test_healthz():
+    async with httpx.AsyncClient(base_url="http://app:8000") as client:
+        resp = await client.get("/healthz")
+        assert resp.status_code == 200
+        assert resp.json() == {"status": "ok"}
+
+@pytest.mark.asyncio
 async def test_publish_and_consume():
     async with httpx.AsyncClient(base_url="http://app:8000") as client:
         # Step 1: Publish a message

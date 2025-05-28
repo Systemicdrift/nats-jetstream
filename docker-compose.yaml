@@ -21,11 +21,11 @@ services:
     depends_on:
       - nats
 
+
   test_integration:
-    image: python:3.11-slim
+    build:
+      context: .
+      dockerfile: Dockerfile.test
     depends_on:
       - app
-    volumes:
-      - .:/app
     working_dir: /app/test
-    entrypoint: ["sh", "-c", "pip install pytest httpx && pytest test_integration.py"]
