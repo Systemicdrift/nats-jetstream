@@ -9,20 +9,19 @@ PYTEST := $(VENV)/bin/pytest
 
 help:
 	@echo "Makefile commands:"
-	@echo "  venv       - Create virtual environment"
-	@echo "  install    - Install dependencies from pyproject.toml"
-	@echo "  test       - Run pytest tests"
-	@echo "  clean      - Remove virtual environment and __pycache__"
+	@echo "  clean       - Remove virtual environment and __pycache__"
+	@echo "  clean-build - Build new docker images"
+	@echo "  relock      - Build new uv.lock file"
+	@echo "  run         - Run project in docker"
+	@echo "  setup       - Setup venv, install python deps from pyproject.toml"
+	@echo "  test        - Run pytest tests"
+	@echo "  test-int    - Run pytest integration tests"
 
-venv:
-	@echo "Creating virtual environment in $(VENV)..."
-	$(UV) venv $(VENV)
 
-install: venv
-	@echo "Installing dependencies with uv..."
-	$(UV) pip install --upgrade pip
-	$(UV) pip install -e .
-	# or just: $(UV) pip install .
+
+
+setup:
+	uv run
 
 test:
 	@echo "Running tests with pytest..."
