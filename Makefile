@@ -17,9 +17,6 @@ help:
 	@echo "  test        - Run pytest tests"
 	@echo "  test-int    - Run pytest integration tests"
 
-
-
-
 setup:
 	uv sync
 
@@ -29,7 +26,6 @@ test:
 
 test-int:
 	docker compose up --build --abort-on-container-exit --exit-code-from test_integration
-
 
 clean:
 	@echo "Removing virtual environment and __pycache__..."
