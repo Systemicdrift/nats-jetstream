@@ -21,7 +21,7 @@ help:
 
 
 setup:
-	uv run
+	uv sync
 
 test:
 	@echo "Running tests with pytest..."
