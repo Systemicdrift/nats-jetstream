@@ -22,7 +22,7 @@ or
 
 ## Make commands
 `make help`
-
+``
 >Makefile commands:
 >  clean       - Remove virtual environment and pycache
 >  clean-build - Build new docker images
@@ -31,3 +31,4 @@ or
 >  setup       - Setup venv, install python deps from pyproject.toml
 >  test        - Run pytest tests
 >  test-int    - Run pytest integration tests
+``
