@@ -1,0 +1,13 @@
+# service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-uv-service
+spec:
+  type: LoadBalancer  # Use NodePort for local clusters
+  selector:
+    app: python-uv-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
