@@ -1,6 +1,6 @@
 # Simple nats-jestream app
 
-Simple app to demonstrate use of docker, uv and nat-jetstream message queue
+Simple app to demonstrate use of docker/kubernetes, python/uv and nat-jetstream message queue
 
 ## Dependencies
 [UV](https://docs.astral.sh/uv/)
